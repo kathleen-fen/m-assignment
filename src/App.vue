@@ -47,7 +47,7 @@ export default {
           this.as_A = responces[0].data
           this.as_B = responces[1].data
           this.as_C = responces[2].data
-          console.log(responces)
+         // console.log(responces)
           this.loading = false
       }))
       .catch(error => console.log(error))

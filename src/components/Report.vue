@@ -39,19 +39,26 @@
             </div>
         
         </div>
-        
-        <table class="table table-sm table-dark">
-        <thead>
-            <tr>
-            <th v-for="h in this.hours" :key="h.name" scope="col"> {{ h.name }}</th>  
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td v-for="v in this.hours" :key="v.name">{{ v.value }}</td>
-            </tr>
-        </tbody>
-        </table>
+        <Tables 
+        class="extra-large"
+        :col="24"
+        :hours="hours"
+        />
+        <Tables 
+        class="large"
+        :col="12"
+        :hours="hours"
+        />
+         <Tables
+         class="medium" 
+        :col="8"
+        :hours="hours"
+        />
+        <Tables
+         class="small" 
+        :col="5"
+        :hours="hours"
+        />
         <div class="row">
             <div class="col-md-12">
                 <Graph
@@ -67,6 +74,8 @@
 </template>
 <script>
 import Graph from './Graph'
+import Tables from './Tables'
+
 export default {
     name: 'Report',
     data () {
@@ -79,7 +88,8 @@ export default {
         }
     },
     components: {
-       Graph
+       Graph,
+       Tables
     },
     props: {
         machine: {
@@ -111,7 +121,7 @@ export default {
             this.className = 'alert-danger' 
         if (this.color.includes('good'))
             this.className = 'alert-success'       
-        console.log(this.hours)
+    //    console.log(this.hours)
 
         
     }
@@ -125,13 +135,65 @@ export default {
 table {
     margin-top: 10px;
 }
-.warning {
-    background-color: #fff3cd;
+
+//media requests
+.extra-large {
+    display: none;
 }
-.fatal {
-     background-color: #f8d7da;
+.large {
+    display: none;
 }
-.good {
-     background-color: green;
+.medium {
+    display: none;
 }
+.small {
+    display: block;
+}
+
+@media(min-width: 460px)  {
+    .extra-large {
+        display: none;
+    }
+    .large {
+        display: none;
+    }
+    .medium {
+        display: block;
+    }
+    .small {
+        display: none;
+    }
+}
+
+@media(min-width: 660px)  {
+    .extra-large {
+        display: none;
+    }
+    .large {
+        display: block;
+    }
+    .medium {
+        display: none;
+    }
+    .small {
+        display: none;
+    }
+}
+
+@media(min-width: 1300px)  {
+    .extra-large {
+        display: block;
+    }
+    .large {
+        display: none;
+    }
+    .medium {
+        display: none;
+    }
+    .small {
+        display: none;
+    }
+}
+
+
 </style>
