@@ -33,8 +33,9 @@ export default {
         hours: Array
     },
     created() {
+        /*define table count for responsability*/
         this.tableCount = Math.ceil(this.hours.length/this.col)
-        console.log(this.tableCount)
+       
          for  (let c = 0; c < this.tableCount; c++) {
                  let h_table = []
                 for (let i = c*this.col+1; i <= Math.min(this.col*(c+1),this.hours.length); i++) {

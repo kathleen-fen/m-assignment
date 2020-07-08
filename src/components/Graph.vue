@@ -45,7 +45,7 @@ export default {
 }
 ul.xAxis{margin:0 0 0 43px;padding:0;float:left;clear:left;display:inline;}
 ul.yAxis{margin:14px 0 0 0;padding:0;display:inline;float:left;}
-ul.xAxis li{float:left; list-style:none;width:33px;text-align:center;}
+ul.xAxis li{float:left; list-style:none;width:10px;text-align:center; font-size: 0.4rem;}
 ul.yAxis li{
 	list-style:none;
 	height:33px;
@@ -70,14 +70,16 @@ dl#csschart dd{
 	position:relative;
 	float:left;
 	display:inline;
-	width:33px;
+	width:10px;
 	height:330px;
 	margin-top:22px;		
 	} 
 dl#csschart span{
 	position:absolute;
 	display:block;
-	width:33px;	
+	width:10px;	
+	writing-mode: vertical-lr;
+	font-size: 8px;
 	bottom:0;
 	left:0;	
 	z-index:1;
@@ -210,5 +212,46 @@ dl#csschart .sub{
 	dl#csschart .p98 span{height:98%}
 	dl#csschart .p99 span{height:99%}
 	dl#csschart .p100 span{height:100%}
+
+	//media requists
+	@media(min-width: 560px) {
+		dl#csschart dd{
+			width:20px;
+		} 
+		dl#csschart span{
+			width:20px;	
+		} 
+		ul.xAxis li {
+			width: 20px;
+			font-size: 0.8rem;
+		}		
+	}
+
+	@media(min-width: 760px) {
+		dl#csschart dd{
+			width:28px;
+		} 
+		dl#csschart span{
+			width:28px;	
+			writing-mode: horizontal-tb;
+			font-size: 7px;
+		} 
+		ul.xAxis li {
+			width: 28px;
+		}		
+	}
+
+	@media(min-width: 883px) {
+		dl#csschart dd{
+			width:33px;
+		} 
+		dl#csschart span{
+			width:33px;	
+			font-size: 10px;
+		} 
+		ul.xAxis li {
+			width: 33px;
+		}		
+	}
 
 </style>
